@@ -17,7 +17,15 @@ var generateBtn = document.querySelector("#generate");
 //DEPENDENCIES DOM
 
 //DATA
-
+var numbers = "0 1 2 3 4 5 6 7 8 9".split("");
+var lowerletters = "q w e r t y u i o p l k j h g f d s a z x c v b n m".split(
+  ""
+);
+var upperLower =
+  "q w e r t y u i o p a s d f g h j k l z x c v b n m Q W E R T Y U I O P A S D F G H J K L Z X C V B N M".split(
+    ""
+  );
+var specialCharacters = "! @ # $ % ^ & * ( ) ~ - ? > < / . , ; ' { }".split("");
 //FUNCTIONS
 //How many Characters do you want for your password? (8-28)
 function charLength() {
@@ -48,7 +56,10 @@ function specialChar() {
     return false;
   }
 }
-
+//Generate the password using the preferences given
+function genPassword() {
+  CompOptions[Math.floor(Math.random() * CompOptions.length)];
+}
 function writePassword() {
   var amtChar = charLength();
   console.log(amtChar);
@@ -61,7 +72,6 @@ function writePassword() {
 
 //button push starts write password questions
 
-//Generate the password using the preferences given
 //Display password in the given box
 
 //INITIALIZATIONS
