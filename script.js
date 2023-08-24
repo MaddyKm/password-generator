@@ -161,6 +161,7 @@ function postPassword(password) {
   passwordText.textContent = "Your Password is: " + password.join("");
 }
 function writePassword() {
+  characterOptions = [];
   var amtChar = charLength();
   console.log(amtChar);
   var includeLwr = lowerCase();
