@@ -2,17 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-
-//generateBtn.addEventListener("click", writePassword());
 
 //DEPENDENCIES DOM
 
@@ -157,70 +146,20 @@ function specialChar() {
   }
 }
 //Generate the password using the preferences given
+function genPassword(amtChar, characterOptions) {
+  let password = [];
+  for (i = 0; i < amtChar; i++) {
+    password.push(
+      characterOptions[Math.floor(Math.random() * characterOptions.length)]
+    );
+  }
+  return password;
+}
+function postPassword(password) {
+  var passwordText = document.querySelector("#password");
 
-// function genPassword(amtChar, length, includeUp, includeNum, includeSpcl) {
-//   if (includeUp === true && includeNum === true && includeSpcl === true) {
-//     for (let i = 0; i < amtChar; i++) {
-//       var password = (upperLower + numbers + specialCharacters)[
-//         Math.floor(Math.random() * specialCharacters.length)
-//       ];
-//     }
-//     return password;
-//   } else if (
-//     includeUp === true &&
-//     includeNum === true &&
-//     includeSpcl === false
-//   ) {
-//     var password = (upperLower + numbers)[Math.floor(Math.random() * length)];
-//     return password;
-//   } else if (
-//     includeUp === true &&
-//     includeNum === false &&
-//     includeSpcl === false
-//   ) {
-//     password = upperLower[Math.floor(Math.random() * length)];
-//     return password;
-//   } else if (
-//     includeUp === false &&
-//     includeNum === false &&
-//     includeSpcl === false
-//   ) {
-//     for (let i = 0; i < amtChar; i++) {
-//       password = lowerletters[i][Math.floor(Math.random() * length)];
-//     }
-//     return password;
-//   } else if (
-//     includeUp === false &&
-//     includeNum === true &&
-//     includeSpcl === true
-//   ) {
-//     password = (lowerletters + numbers + specialCharacters)[
-//       Math.floor(Math.random() * length)
-//     ];
-//     return password;
-//   } else if (
-//     includeUp === false &&
-//     includeNum === true &&
-//     includeSpcl === false
-//   ) {
-//     password = (lowerletters + numbers)[Math.floor(Math.random() * length)];
-//     return password;
-//   } else if (
-//     includeUp === false &&
-//     includeNum === false &&
-//     includeSpcl === true
-//   ) {
-//     password = (lowerletters + specialCharacters)[
-//       Math.floor(Math.random() * length)
-//     ];
-//     return password;
-//   } else {
-//     password = (upperLower + specialCharacters)[
-//       Math.floor(Math.random() * length)
-//     ];
-//     return password;
-//   }
-//}
+  passwordText.textContent = "Your Password is: " + password;
+}
 function writePassword() {
   var amtChar = charLength();
   console.log(amtChar);
@@ -232,20 +171,16 @@ function writePassword() {
   console.log(includeNum);
   var includeSpcl = specialChar();
   console.log(includeSpcl);
-  var password = genPassword(
-    amtChar,
-    includeUp,
-    includeNum,
-    includeSpcl,
-    length
-  );
+  var password = genPassword(amtChar, characterOptions);
   console.log(password);
+  postPassword();
 }
 //USER INTERACTIONS
-
-//button push starts write password questions
 
 //Display password in the given box
 
 //INITIALIZATIONS
-writePassword();
+//button push starts write password questions
+generateBtn.addEventListener("click", function () {
+  writePassword();
+});
