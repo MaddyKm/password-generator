@@ -158,7 +158,7 @@ function genPassword(amtChar, characterOptions) {
 function postPassword(password) {
   var passwordText = document.querySelector("#password");
 
-  passwordText.textContent = "Your Password is: " + password;
+  passwordText.textContent = "Your Password is: " + password.join("");
 }
 function writePassword() {
   var amtChar = charLength();
@@ -173,7 +173,7 @@ function writePassword() {
   console.log(includeSpcl);
   var password = genPassword(amtChar, characterOptions);
   console.log(password);
-  postPassword();
+  postPassword(password);
 }
 //USER INTERACTIONS
 
