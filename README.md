@@ -3,6 +3,7 @@
 ## Description
 
 A password generator which will allow users to choose their preferences on whether to include lowercase, uppercase, numbers, or special characters in their password, as well as the desired length.
+![Screenshot 2023-08-25 at 9 31 36 AM](https://github.com/MaddyKm/password-generator/assets/134648462/bad3f29f-c91c-462d-91f4-71bde34fe66c)
 
 ## Installation
 
